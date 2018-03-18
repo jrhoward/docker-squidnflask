@@ -1,11 +1,11 @@
-FROM centos:7
+FROM fedora
 MAINTAINER jrhowd@gmail.com
 
 ENV SQUID_CACHE_DIR=/var/spool/squid \
     SQUID_LOG_DIR=/var/log/squid \
     SQUID_USER=squid
 
-RUN yum install -y squid python-setuptools && yum clean all && rm -rf /var/cache/yum && \
+RUN dnf install -y squid python-setuptools && dnf clean all && rm -rf /var/cache/yum && \
     curl  https://bootstrap.pypa.io/get-pip.py | python - && \
     pip install flask flask_httpauth
 
