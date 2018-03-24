@@ -5,6 +5,8 @@
 .concordinfiniti.com
 .cloudworkengine.net
 .microsoft.com
+.microsoftonline.com
+.office.com
 .bing.com
 .msn.com
 .googleapis.com
@@ -21,7 +23,6 @@
 .ted.org
 .schoology.com
 .learningshared.com.au
-.microsoftonline.com
 .microsoftonline-p.com
 .office.com
 .msocdn.com

@@ -24,8 +24,26 @@ acl Safe_ports port 591		# filemaker
 acl Safe_ports port 777		# multiling http
 acl CONNECT method CONNECT
 
+forwarded_for off
+visible_hostname proxy
+
+header_access From deny all
+header_access Server deny all
+header_access WWW-Authenticate deny all
+header_access Link deny all
+header_access Cache-Control deny all
+header_access Proxy-Connection deny all
+header_access X-Cache deny all
+header_access X-Cache-Lookup deny all
+header_access Via deny all
+header_access Forwarded-For deny all
+header_access X-Forwarded-For deny all
+header_access Pragma deny all
+header_access Keep-Alive deny all
+
 acl whitelist dstdomain "/etc/squid/whitelist.txt"
 acl blacklist dstdomain "/etc/squid/blacklist.txt"
+acl user_agent_allow dstdomain "/etc/squid/allowed-agents.txt"
 #
 # Recommended minimum Access Permission configuration:
 #
@@ -53,6 +71,9 @@ http_access deny manager
 # from where browsing should be allowed
 http_access allow localnet
 http_access allow localhost
+
+header_access User-Agent allow user_agent_allow
+
 http_access deny blacklist
 http_access allow whitelist
 http_access deny all
