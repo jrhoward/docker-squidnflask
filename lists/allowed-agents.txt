@@ -1,1 +1,4 @@
-^iPad Mail
+iPad Mail
+Outlook
+Microsoft Office
+Spotify
