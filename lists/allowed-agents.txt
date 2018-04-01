@@ -2,3 +2,4 @@ iPad Mail
 Outlook
 Microsoft Office
 Spotify
+Schoolology
