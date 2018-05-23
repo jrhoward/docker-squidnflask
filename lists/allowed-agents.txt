@@ -3,3 +3,5 @@ Outlook
 Microsoft Office
 Spotify
 Schoolology
+OneNote
+EP

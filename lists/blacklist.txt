@@ -6,6 +6,7 @@
 .googlevideo.com
 .l.google.com
 .snapchat.com
+.narvii.com
 .youtu.be
 .youtube.com
 .youtube.com.ac

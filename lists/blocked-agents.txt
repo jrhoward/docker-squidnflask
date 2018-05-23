@@ -1,2 +1,5 @@
 YouTube
 com.google.ios.youtube
+Snapchat
+Amino
+Instagram
