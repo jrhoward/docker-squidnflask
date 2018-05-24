@@ -9,10 +9,10 @@ if [ $status -ne 0 ]; then
 fi
 
 # Start the second process
-/opt/flask_app/squid/runapp.sh &
+/bin/squid-api &
 status=$?
 if [ $status -ne 0 ]; then
-  echo "Failed to start flask_app: $status"
+  echo "Failed to start squid api: $status"
   exit $status
 fi
 
@@ -25,7 +25,7 @@ fi
 while sleep 60; do
   ps aux |grep squid |grep -q -v grep
   PROCESS_1_STATUS=$?
-  ps aux |grep flask |grep -q -v grep
+  ps aux |grep squid-api |grep -q -v grep
   PROCESS_2_STATUS=$?
   # If the greps above find anything, they exit with 0 status
   # If they are not both 0, then something is wrong
@@ -33,13 +33,5 @@ while sleep 60; do
   # if [ $PROCESS_1_STATUS -ne 0 ]; then
     echo "One of the processes has already exited."
     exit 1
-  else
-    echo "check succeeded"
-    /opt/flask_app/squid/cronjob.sh
-    status=$?
-    if [ $status -ne 0 ]; then
-      echo "Failed to run update: $status"
-      exit $status
-    fi
   fi
 done

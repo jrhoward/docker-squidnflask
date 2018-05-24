@@ -1,4 +1,4 @@
 sudo docker build -t squidnflask .
 firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --zone=public --add-port=3128/tcp --permanent
-sudo docker run --restart always -d -p3128:3128 -p80:5000 --name squid  squidnflask
+sudo docker run --restart always -d -p3128:3128 -p80:8080 --name squid  squidnflask
