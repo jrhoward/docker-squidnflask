@@ -20,6 +20,10 @@ if [[ ! -d ${SQUID_CACHE_DIR}/00 ]]; then
   squid -N -f /etc/squid/squid.conf -z
 fi
 rm -f /var/run/squid.pid || true
+if [ ! -L /etc/squid/squid.conf ]; then
+  rm -f /etc/squid/squid.conf &&\
+  ln -sf  /etc/squid/squid.conf.disable /etc/squid/squid.conf
+fi
 
 echo "Starting squid..."
 exec squid -f /etc/squid/squid.conf -NYCd 1
